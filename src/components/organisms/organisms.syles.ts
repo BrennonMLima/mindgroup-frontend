@@ -42,11 +42,11 @@ export const Overview = styled.div`
     min-width: 70%;
     margin-top: 20px;
     padding: 5px 20px 20px 20px;
-    word-break: break-all;
 `;
 export const OverViewTitles = styled.div `
     width: 100%;
     display: flex;
+    gap: 10px;
     justify-content: space-between;
 `;
 

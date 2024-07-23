@@ -27,15 +27,7 @@ const SignUp: React.FC = () => {
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                const base64String = reader.result as string;
-                setImagePreview(base64String);
-                setImage(base64String.split(',')[1]);
-            };
-            reader.readAsDataURL(file);
-        }
+
     };
 
     const handleSubmit = async (e: React.FormEvent) => {

@@ -7,7 +7,6 @@ import { ModalStyled, TransactionInput } from "./organisms.syles";
 
 interface ModalAddProps {
   onSave: (
-    userId: string,
     description: string,
     price: string,
     type: string,
@@ -24,7 +23,6 @@ const getTodayDate = () => {
 };
 
 const ModalAdd: React.FC<ModalAddProps> = ({ onSave }) => {
-  const [userId, setuserId] = useState("b281126a-e359-4429-b3f8-5e74198f9f00");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [type, setType] = useState("");
@@ -53,8 +51,17 @@ const ModalAdd: React.FC<ModalAddProps> = ({ onSave }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await createTransaction(userId, description, price, type, date, category);
-    onSave(userId, description, price, type, date, category);
+    if (!description || !price || !type || !category || !date) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+  }
+
+if (!/^[\d.]+$/.test(price)) {
+  alert('O preço deve conter apenas números e pontos.');
+  return;
+}
+    await createTransaction(description, price, type, date, category);
+    onSave(description, price, type, date, category);
   }
 
   return (

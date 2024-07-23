@@ -36,7 +36,7 @@ export const SearchBoardlStyled = styled.div`
     box-shadow: 0rem 0.4rem 1.6rem rgba(22, 22, 22, 0.1);
     border-radius: 30px;
     min-width: 70%;
-    padding: 20px 30px;
+    padding: 5px 30px;
     margin-top: 20px;
 `
 export const TableHeaderStyled = styled.div`

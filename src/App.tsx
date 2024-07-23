@@ -8,12 +8,14 @@ const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
 
   useEffect(()=>{
     const token = getCookie("auth-token");
-    if(token) setIsLoggedIn(true)
-}, [])
-
+    if(token){
+      setIsLoggedIn(true)
+    }
+}, [isLoggedIn])
 
   const handleLogin = async (email: string, password: string)=> {
     try{
@@ -27,11 +29,7 @@ const App: React.FC = () => {
     }
   }
 
-  const handleSave = async (name: string,
-    descripton: string,
-    value: string,
-    amount: number,
-    imageUrl: string,)=> {
+  const handleSave = async (description: string, price: string, type: string, category: number, date: string)=> {
   }
 
   const handleCloseModal = () => {
@@ -53,8 +51,6 @@ const App: React.FC = () => {
     setIsEditModalOpen(false);
   setIsModalOpen(isOpen);
   };
-
-console.log('render')
 
   return (
     <div className="App">

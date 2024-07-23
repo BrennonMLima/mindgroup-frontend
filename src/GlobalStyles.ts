@@ -43,8 +43,10 @@ textarea{
     height: 50px;
     align-items: center;
     font-size: 40px;
-    width: 90%;
+    width: 89%;
     background-color: var(--preto);
+    border-right: 1px #666 solid;
+    margin-right: 1px;
 }
 `;
 

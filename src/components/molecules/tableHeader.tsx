@@ -11,7 +11,7 @@ const TableHeader = () => {
         <Th width="15%">Tipo</Th>
         <Th width="15%">Categoria</Th>
         <Th width="15%">Data</Th>
-        <Th width="5%">E/S</Th>
+        <Th width="5%">Ações</Th>
       </Tr>
     </TableHeaderStyled>
   );

@@ -37,7 +37,8 @@ const TableGrid: React.FC<TableGridProps> = ({ onToggleEditModal, shouldUpdate, 
 
   const filteredTransactions = transactions.filter(transaction => 
     transaction.category.toLowerCase().includes(search.toLowerCase()) ||
-    transaction.description.toLowerCase().includes(search.toLowerCase())
+    transaction.description.toLowerCase().includes(search.toLowerCase()) ||
+    transaction.type.toLowerCase().includes(search.toLowerCase())
   );
 
   return (

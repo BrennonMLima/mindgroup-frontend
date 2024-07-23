@@ -5,11 +5,11 @@ export const login = async (email: string, password: string) => {
 };
 
 export const createUser = async (name: string, email: string, password: string, image: string) => {
-    return await api.post("/user", { name, email, password, image });
+    return await api.post("/user", { name, email, password,image });
 };
 
-export const getUserById = async (userId: string) => {
-    return await api.get(`/user/${userId}`);
+export const getUserById = async () => {
+    return await api.get("/user");
 };
 
 export const getUserByEmail = async (email: string) => {

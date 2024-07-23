@@ -40,6 +40,7 @@ const MainPage: React.FC<MainPageProps> = ({
   const [editedTransaction, setEditedTransaction] = useState<Transaction | null>(null);
   const [shouldUpdate, setShouldUpdate] = useState(false);
   const [search, setSearch] = useState('');
+  const [userId, setuserId] = useState("b281126a-e359-4429-b3f8-5e74198f9f00");
 
   const toggleEditModal = (transaction?: Transaction) => {
     setEditedTransaction(transaction || null);
@@ -55,7 +56,7 @@ const MainPage: React.FC<MainPageProps> = ({
     <div className="App">
       <Header />
       <Main>
-        <TransactionOverview/>
+        <TransactionOverview userId={userId}/>
         <SearchBoard onToggleModal={handleToggleModal} search={search} setSearch={setSearch} />
         {isModalOpen && <ModalAdd onSave={updateTransactions} />}
         {isEditModalOpen && (

@@ -18,8 +18,8 @@ interface RouterProps {
     isLoggedIn: boolean;
     isModalOpen: boolean;
     isEditModalOpen: boolean;
-    handleLogin: (username: string, password: string) => void;
-    handleSave: (name: string, descripton: string, value: string, amount: number, image: string) => void;
+    handleLogin: (name: string, password: string) => void;
+    handleSave: (description: string, price: string, type: string, category: number, date: string) => void;
     handleToggleModal: () => void;
     handleCloseModal: () => void;
     handleToggleEditModal: (transaction?: Transaction) => void;
