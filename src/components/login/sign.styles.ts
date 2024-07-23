@@ -51,3 +51,42 @@ position: relative;
     }
 }
 `;
+
+export const ImageContainer = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    .image-input {
+    display: none;
+  }
+
+    .image-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--azul-escuro);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+    
+    .image-label:hover {
+    background: var(--azul-claro);
+  } 
+
+  .image-preview {
+    max-width: 100px;
+    max-height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+
+  .placeholder-text {
+    font-size: 14px;
+    color: #888;
+  }
+`;
+

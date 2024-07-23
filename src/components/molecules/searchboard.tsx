@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../atoms/button/button';
 import { SearchBoardlStyled } from './molecules.styles';
+import { SeachIcon } from '../atoms/icons/icons';
 
 interface SearchBoardProps {
   onToggleModal: () => void;

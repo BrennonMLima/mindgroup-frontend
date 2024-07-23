@@ -16,7 +16,7 @@ export const InputStyles = styled.input`
     }
 
     &.number-input {
-        background: #212528;
+        background: --var(cinza-escuro);
         border: 0.07rem solid #e3e3e3;
         box-shadow: 0rem 0.4rem 1.6rem rgba(22, 22, 22, 0.1);
         border-radius: 10px;
@@ -24,7 +24,15 @@ export const InputStyles = styled.input`
         padding: 10px 10px;
         max-width: 80px;
     }
+
 `;
 
-//background: var(--preto);
-//background: #212528;
+export const RadioStyles = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    label{
+        font-size: 15px;
+    }
+`

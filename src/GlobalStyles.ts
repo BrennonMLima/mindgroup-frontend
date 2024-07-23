@@ -6,7 +6,6 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--preto);
     color: #fff;
 }
 html, body {
@@ -14,6 +13,7 @@ html, body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    background-color: var(--preto);
 }
 
 *, button, input {
@@ -24,7 +24,7 @@ font-family: 'Roboto', sans-serif;
 
 :root {
 --preto: #161a1d;
---cinza-escuro: #333;
+--cinza-escuro: #212528;
 --azul-escuro: #011936;
 --azul-claro: #3772FF;
 }
@@ -44,6 +44,7 @@ textarea{
     align-items: center;
     font-size: 40px;
     width: 90%;
+    background-color: var(--preto);
 }
 `;
 

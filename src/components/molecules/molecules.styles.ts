@@ -43,7 +43,7 @@ export const TableHeaderStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--white);
+    background: var(--null);
     border-bottom: 0.07rem dotted #e3e3e3;
     min-width: 70%;
     padding: 10px 30px;

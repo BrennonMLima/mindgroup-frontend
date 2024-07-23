@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { getAllTransactions } from '../../service/transactions';
 import TableHeader from '../molecules/tableHeader';
 import TableRow from '../molecules/tableRow';
 import { Table } from './organisms.syles';
 
 interface Transaction {
+  id: string;
   description: string;
   price: string;
   type: string;
@@ -20,6 +22,19 @@ interface TableGridProps {
 const TableGrid: React.FC<TableGridProps> = ({ onToggleEditModal, shouldUpdate, search }) => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
+  const fetchTransactions = async () => {
+    try{
+      const response = await getAllTransactions();
+      setTransactions(response.data.transactions)
+    }catch(err){
+      setTransactions([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchTransactions();
+  },[shouldUpdate]);
+
   const filteredTransactions = transactions.filter(transaction => 
     transaction.category.toLowerCase().includes(search.toLowerCase()) ||
     transaction.description.toLowerCase().includes(search.toLowerCase())
@@ -28,9 +43,12 @@ const TableGrid: React.FC<TableGridProps> = ({ onToggleEditModal, shouldUpdate, 
   return (
     <Table>
       <TableHeader />
-      {filteredTransactions.map((transactions) => (
+      {filteredTransactions.map((transaction) => (
         <TableRow
-
+        key={transaction.id}
+        transaction={transaction}
+        onToggleEditModal={onToggleEditModal}
+        onUpdate={fetchTransactions}
         />
       ))}
     </Table>

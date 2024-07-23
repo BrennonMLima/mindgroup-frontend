@@ -21,9 +21,9 @@ interface ModalEditProps {
 const ModalEdit: React.FC<ModalEditProps> = ({ editedTransaction, onClose, onSave }) => {
   const [editedDescription, setEditedDescription] = useState(editedTransaction ? editedTransaction.description : "");
   const [editedPrice, setEditedPrice] = useState(editedTransaction ? editedTransaction.price.toString() : "");
-  const [editedType, setEditedType] = useState(editedTransaction ? editedTransaction.price : 0);
+  const [editedType, setEditedType] = useState(editedTransaction ? editedTransaction.type || "" : "" );
   const [editedCategory, setEditedCategory] = useState(editedTransaction ? editedTransaction.category || "" : "");
-  const [editedDate, setEditedDate] = useState(editedTransaction ? editedTransaction.category || "" : "");
+  const [editedDate, setEditedDate] = useState(editedTransaction ? editedTransaction.date || "" : "");
 
 
   const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,8 +39,7 @@ const ModalEdit: React.FC<ModalEditProps> = ({ editedTransaction, onClose, onSav
   };
 
   const handleCategoryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const category = (e.target.value);
-    setEditedCategory(category);
+    setEditedCategory (e.target.value);
   };
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {

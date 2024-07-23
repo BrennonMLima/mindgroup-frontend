@@ -15,7 +15,7 @@ const Tr: React.FC<TdProps> = ({ children, alignCenter, width, onlyWeb }) => {
           width: '100%',
           display: 'flex',
           flexDirection: 'row',
-          padding: '10px',
+          padding: '10px 15px',
           alignItems: 'center',
         }}
       >

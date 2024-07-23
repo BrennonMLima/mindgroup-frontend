@@ -5,7 +5,7 @@ import { ModalLabelStyled } from './molecules.styles';
 
 interface ModalLabelProps {
   title: string;
-  type?: "number" | "text" | "image" | "date";
+  type?: "number" | "text" | "image" | "date" | "radio";
   placeholder?: string;
   value?: string | number;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;

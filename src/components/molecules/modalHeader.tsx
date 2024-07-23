@@ -1,12 +1,11 @@
 import React from 'react';
-import { title } from 'process';
 import { ModalHeaderStyled } from './molecules.styles';
 
-interface ModalTile {
+interface ModalTitle {
     title: string;
   }
 
-  const ModalHeader: React.FC<ModalTile> = ({ title }) => {
+  const ModalHeader: React.FC<ModalTitle> = ({ title }) => {
     return (
         <ModalHeaderStyled>
             <h1>{title}</h1>

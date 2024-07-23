@@ -6,6 +6,7 @@ import ModalAdd from '../organisms/modalAdd';
 import ModalEdit from '../organisms/modalEdit';
 import TableGrid from '../organisms/TableGrid';
 import { Main } from './template.styles';
+import TransactionOverview from '../organisms/transactionOverview';
 
 interface Transaction {
   description: string;
@@ -54,6 +55,7 @@ const MainPage: React.FC<MainPageProps> = ({
     <div className="App">
       <Header />
       <Main>
+        <TransactionOverview/>
         <SearchBoard onToggleModal={handleToggleModal} search={search} setSearch={setSearch} />
         {isModalOpen && <ModalAdd onSave={updateTransactions} />}
         {isEditModalOpen && (

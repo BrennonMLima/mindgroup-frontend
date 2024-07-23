@@ -4,13 +4,14 @@ import Tr from '../atoms/table/tr';
 
 const TableHeader = () => {
   return (
-    <TableHeaderStyled className='table-header'>
+    <TableHeaderStyled>
       <Tr>
-        <Th width="40%">Descrição</Th>
+        <Th width="37%">Descrição</Th>
         <Th width="15%">Valor</Th>
         <Th width="15%">Tipo</Th>
         <Th width="15%">Categoria</Th>
         <Th width="15%">Data</Th>
+        <Th width="5%">E/S</Th>
       </Tr>
     </TableHeaderStyled>
   );

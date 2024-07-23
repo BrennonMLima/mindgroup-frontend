@@ -8,8 +8,8 @@ const Header: React.FC = () => {
       <HeaderContainer>
         <h1>Minhas Finanças</h1>
       </HeaderContainer>
-      <HeaderContainer className='profile'>
-        <BsPersonFillGear className='config-icon'/>
+      <HeaderContainer>
+        <BsPersonFillGear/>
       </HeaderContainer>
     </HeaderStyled>
   );
