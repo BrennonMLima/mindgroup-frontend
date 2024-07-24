@@ -57,14 +57,14 @@ const MainPage: React.FC<MainPageProps> = ({
     <div className="App">
       <Header />
       <Main>
-            <TransactionOverview userId={userId} shouldUpdate={shouldUpdate} />
+        <TransactionOverview userId={userId} shouldUpdate={shouldUpdate} />
         <SearchBoard onToggleModal={handleToggleModal} search={search} setSearch={setSearch} />
         {isModalOpen && <ModalAdd onSave={updateTransactions} onClose={handleCloseModal} />}
         {isEditModalOpen && (
-          <ModalEdit 
-            onClose={handleCloseEditModal} 
-            editedTransaction={editedTransaction} 
-            onSave={updateTransactions} 
+          <ModalEdit
+            onClose={handleCloseEditModal}
+            editedTransaction={editedTransaction}
+            onSave={updateTransactions}
           />
         )}
         <TableGrid shouldUpdate={shouldUpdate} onToggleEditModal={toggleEditModal} search={search} />

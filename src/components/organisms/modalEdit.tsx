@@ -120,7 +120,7 @@ const ModalEdit: React.FC<ModalEditProps> = ({ editedTransaction, onClose, onSav
         <TransactionInput>
           <ModalLabel title="Descrição" type="text" placeholder="Descrição" value={editedDescription} onChange={handleDescriptionChange} />
           <ModalLabel title="Valor" type="text" placeholder="Valor" value={editedPrice} onChange={handlePriceChange} />
-          <ModalLabel title="Tipo" type="text" placeholder="Tipo" value={editedType} onChange={handleTypeChange} />
+          <ModalLabel title="Tipo" type="radio" placeholder="Tipo" value={editedType} onChange={handleTypeChange} />
           <ModalLabel title="Categoria" type="text" placeholder="" value={editedCategory} onChange={handleCategoryChange} />
           <ModalLabel title="Data" type="date" placeholder="" value={editedDate} onChange={handleDateChange} />
           <Button type="submit">Salvar</Button>

@@ -23,7 +23,7 @@ const getTodayDate = () => {
   return today;
 };
 
-const ModalAdd: React.FC<ModalAddProps> = ({ onSave,onClose }) => {
+const ModalAdd: React.FC<ModalAddProps> = ({ onSave, onClose }) => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [type, setType] = useState("");
@@ -55,13 +55,18 @@ const ModalAdd: React.FC<ModalAddProps> = ({ onSave,onClose }) => {
     if (!description || !price || !type || !category || !date) {
       alert('Por favor, preencha todos os campos.');
       return;
-  }
-if (!/^[\d.]+$/.test(price)) {
-  alert('O preço deve conter apenas números e pontos.');
-  return;
-}
-    await createTransaction(description, price, type, date, category);
-    onSave(description, price, type, date, category);
+    }
+    if (!/^[\d.]+$/.test(price)) {
+      alert('O preço deve conter apenas números e pontos.');
+      return;
+    }
+    try {
+
+      await createTransaction(description, price, type, date, category);
+      onSave(description, price, type, date, category);
+    } catch {
+      alert('Algo deu errado!')
+    }
     if (onClose) {
       onClose();
     }
@@ -70,7 +75,7 @@ if (!/^[\d.]+$/.test(price)) {
   return (
     <ModalStyled>
       <form onSubmit={handleSubmit}>
-        <ModalHeader onClose={onClose}  title="Adicione uma transação" />
+        <ModalHeader onClose={onClose} title="Adicione uma transação" />
         <TransactionInput>
           <ModalLabel title="Descrição" type="text" placeholder="Descrição" value={description} onChange={handleDescriptionChange} />
           <ModalLabel title="Valor" type="text" placeholder="Valor" value={price} onChange={handlePriceChange} />
