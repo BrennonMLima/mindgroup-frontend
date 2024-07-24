@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { ModalHeaderStyled } from '../molecules/molecules.styles';
-import { Overview, OverViewTitles, OverviewContainer } from './organisms.syles';
+import { Overview, OverViewTitles, OverviewContainer } from './organisms.styles';
 import { getTotalDespesas, getTotalReceitas } from '../../service/transactions';
 
 interface OverviewProps {
     userId: string;
+    shouldUpdate: boolean;
 }
 
-const TransactionOverview: React.FC<OverviewProps> = ({ userId }) => {
+const TransactionOverview: React.FC<OverviewProps> = ({ userId,shouldUpdate }) => {
     const [totalDespesas, setTotalDespesas] = useState(0);
     const [totalReceitas, setTotalReceitas] = useState(0);
     const [saldo, setSaldo] = useState(0);
@@ -26,7 +27,7 @@ const TransactionOverview: React.FC<OverviewProps> = ({ userId }) => {
         };
 
         fetchTransactionSummary();
-    }, [userId]);
+    }, [userId, shouldUpdate]);
 
     useEffect(() => {
         setSaldo(totalReceitas - totalDespesas);

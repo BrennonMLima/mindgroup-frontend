@@ -13,6 +13,7 @@ interface Transaction {
   price: string;
   type: string;
   category: string;
+  id: string;
   date: string;
 }
 
@@ -56,9 +57,9 @@ const MainPage: React.FC<MainPageProps> = ({
     <div className="App">
       <Header />
       <Main>
-        <TransactionOverview userId={userId}/>
+            <TransactionOverview userId={userId} shouldUpdate={shouldUpdate} />
         <SearchBoard onToggleModal={handleToggleModal} search={search} setSearch={setSearch} />
-        {isModalOpen && <ModalAdd onSave={updateTransactions} />}
+        {isModalOpen && <ModalAdd onSave={updateTransactions} onClose={handleCloseModal} />}
         {isEditModalOpen && (
           <ModalEdit 
             onClose={handleCloseEditModal} 

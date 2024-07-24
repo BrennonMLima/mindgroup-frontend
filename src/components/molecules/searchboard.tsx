@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../atoms/button/button';
-import { SearchBoardlStyled } from './molecules.styles';
+import { SearchBoardlStyled, TextArea } from './molecules.styles';
 interface SearchBoardProps {
   onToggleModal: () => void;
   search: string;
@@ -14,7 +14,7 @@ const SearchBoard: React.FC<SearchBoardProps> = ({ onToggleModal, search, setSea
 
   return (
     <SearchBoardlStyled>
-      <textarea value={search} onChange={handleSearchChange} placeholder='Pesquisar (descrição, tipo, categoria)'/>
+      <TextArea value={search} onChange={handleSearchChange} placeholder='Pesquisar'/>
       <Button onClick={onToggleModal}>+ Novo</Button>
     </SearchBoardlStyled>
   );

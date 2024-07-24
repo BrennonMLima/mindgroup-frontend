@@ -19,3 +19,7 @@ export const getTotalDespesas = async () => {
 export const getTotalReceitas = async () => {
     return await api.get(`/transaction/user/receitas`);
 };
+
+export const updateTransaction = async (id: string, description: string, price: string, type: string, date: Date, category: string) => {
+    return await api.put(`/transaction/${id}`, { description, price, type, date, category });
+};

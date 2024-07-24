@@ -49,7 +49,7 @@ const App: React.FC = () => {
   };
   const handleToggleAddModal = (isOpen: boolean) => {
     setIsEditModalOpen(false);
-  setIsModalOpen(isOpen);
+    setIsModalOpen(isOpen);
   };
 
   return (

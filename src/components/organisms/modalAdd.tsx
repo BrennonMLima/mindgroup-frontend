@@ -3,7 +3,7 @@ import ModalLabel from "../molecules/modalLabel";
 import ModalHeader from "../molecules/modalHeader";
 import Button from "../atoms/button/button";
 import { createTransaction } from "../../service/transactions";
-import { ModalStyled, TransactionInput } from "./organisms.syles";
+import { ModalStyled, TransactionInput } from "./organisms.styles";
 
 interface ModalAddProps {
   onSave: (
@@ -13,6 +13,7 @@ interface ModalAddProps {
     date: Date,
     category: string,
   ) => void;
+  onClose?: () => void;
 }
 
 const getTodayDate = () => {
@@ -22,7 +23,7 @@ const getTodayDate = () => {
   return today;
 };
 
-const ModalAdd: React.FC<ModalAddProps> = ({ onSave }) => {
+const ModalAdd: React.FC<ModalAddProps> = ({ onSave,onClose }) => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [type, setType] = useState("");
@@ -55,19 +56,21 @@ const ModalAdd: React.FC<ModalAddProps> = ({ onSave }) => {
       alert('Por favor, preencha todos os campos.');
       return;
   }
-
 if (!/^[\d.]+$/.test(price)) {
   alert('O preço deve conter apenas números e pontos.');
   return;
 }
     await createTransaction(description, price, type, date, category);
     onSave(description, price, type, date, category);
+    if (onClose) {
+      onClose();
+    }
   }
 
   return (
     <ModalStyled>
       <form onSubmit={handleSubmit}>
-        <ModalHeader title="Adicione uma transação" />
+        <ModalHeader onClose={onClose}  title="Adicione uma transação" />
         <TransactionInput>
           <ModalLabel title="Descrição" type="text" placeholder="Descrição" value={description} onChange={handleDescriptionChange} />
           <ModalLabel title="Valor" type="text" placeholder="Valor" value={price} onChange={handlePriceChange} />

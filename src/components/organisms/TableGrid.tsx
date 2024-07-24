@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getAllTransactions } from '../../service/transactions';
 import TableHeader from '../molecules/tableHeader';
 import TableRow from '../molecules/tableRow';
-import { Table } from './organisms.syles';
+import { Table } from './organisms.styles';
 
 interface Transaction {
   id: string;

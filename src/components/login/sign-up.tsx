@@ -10,7 +10,7 @@ const SignUp: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [imagePreview, setImagePreview] = useState<string | null>(null);
-    const [image, setImage] = useState('');;
+    const [image, setImage] = useState<File | null>(null);
     const navigate = useNavigate();
 
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,12 +27,19 @@ const SignUp: React.FC = () => {
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
-
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagePreview(reader.result as string);
+                setImage(file);
+            };
+            reader.readAsDataURL(file);
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!name || !email || !password) {
+        if (!name || !email || !password || !image) {
             alert('Por favor, preencha todos os campos.');
             return;
         }

@@ -37,16 +37,13 @@ font-family: 'Roboto', sans-serif;
         background-color: transparent;
     }
 
-textarea{
-    display:flex;
-    resize:none;
-    height: 50px;
-    align-items: center;
-    font-size: 40px;
-    width: 89%;
-    background-color: var(--preto);
-    border-right: 1px #666 solid;
-    margin-right: 1px;
+.action-icon{
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 18px;
+    &:hover {
+        color: var(--azul-escuro);
+    }
 }
 `;
 
